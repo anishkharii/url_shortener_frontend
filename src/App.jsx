@@ -18,9 +18,8 @@ function App() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
     try {
-      const response = await fetch("http://localhost:3000", {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
