@@ -1,0 +1,10 @@
+.result__container input{
+  transition: all .2s ease-in-out;
+
+}
+
+.result__container input:focus{
+  background-color: #f6f6f6;
+  outline: none;
+
+}
