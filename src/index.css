@@ -14,3 +14,7 @@ background: -webkit-linear-gradient(135deg, hsla(210, 100%, 99%, 1) 52%, hsla(34
 
 filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F9FCFF", endColorstr="#FFF6F9", GradientType=1 );
 }
+
+html{
+  scroll-behavior: smooth;
+}
