@@ -7,7 +7,7 @@ import { Loader2 } from "lucide-react";
 import ShortenDialog from "./ShortenDialog";
 import { useState } from "react";
 
-const Main = () => {
+const MainPage = () => {
 
     const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
@@ -106,4 +106,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default MainPage

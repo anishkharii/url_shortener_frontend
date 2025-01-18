@@ -1,6 +1,6 @@
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Main from './Main';
+import MainPage from './MainPage';
 import UrlPage from './UrlPage';
 
 const App = () => {
@@ -8,9 +8,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/url/:id" element={<UrlPage/>}/>
-        <Route path='*' element={<Main />} />
+        <Route path='*' element={<MainPage />} />
       </Routes>
     </BrowserRouter>
   );
