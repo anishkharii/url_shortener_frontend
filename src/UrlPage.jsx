@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Card, CardHeader, CardContent } from "./components/ui/card";
@@ -62,27 +63,27 @@ const URLPage = () => {
         <Header urlList={urlList}/>
       <Card className="mb-6">
         <CardHeader>
-          <h1 className="text-2xl font-semibold">URL Details</h1>
+          <h1 className="text-2xl font-bold">URL Details</h1>
         </CardHeader>
         <CardContent className='flex flex-col gap-5 md:flex-row px-10 justify-between'>
           <div className="space-y-2">
             <div>
-              <span className="font-medium">Short URL:</span> 
+              <span className="font-bold">Short URL:</span> 
               <a href={`${import.meta.env.VITE_BACKEND_URL}/${short_id}`} target="_blank" className="text-blue-500 hover:underline line-clamp-2">
               {`${import.meta.env.VITE_BACKEND_URL}/${short_id}`}
               </a>
             </div>
             <div>
-              <span className="font-medium">Original URL:</span>{" "}
+              <span className="font-bold">Original URL:</span>{" "}
               <a href={original_url} target="_blank" className="text-blue-500 hover:underline line-clamp-2">
                 {original_url}
               </a>
             </div>
             <div>
-              <span className="font-medium">Total Clicks:</span> {totalClicks}
+              <span className="font-bold">Total Clicks:</span> {totalClicks}
             </div>
             <div>
-              <span className="font-medium">Created At:</span> {new Date(createdAt).toLocaleString()}
+              <span className="font-bold">Created At:</span> {new Date(createdAt).toLocaleString()}
             </div>
           </div>
           <div>
@@ -113,7 +114,7 @@ const URLPage = () => {
                   <TableHead>Browser</TableHead>
                   <TableHead>OS</TableHead>
                   <TableHead>IP</TableHead>
-                  <TableHead>Location</TableHead>
+                  <TableHead className='text-center'>Location</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -124,16 +125,22 @@ const URLPage = () => {
 
                   return (
                     <TableRow key={index}>
-                      <TableCell>{new Date(timestamp).toLocaleString()}</TableCell>
+                      <TableCell>
+                        {new Date(timestamp).toLocaleString()}
+                      </TableCell>
                       <TableCell>{`${browser} ${browserVersion}`}</TableCell>
                       <TableCell>{`${os} ${osVersion}`}</TableCell>
                       <TableCell>{ip}</TableCell>
                       <TableCell>
-                        <div className="flex items-center space-x-2">
-                          <MapPin className="w-4 h-4" />
-                          <span>{`${city}, ${region}, ${country}`}</span>
-                          <Globe className="w-4 h-4 ml-2" />
-                          <span>{`[${ll.join(", ")}]`}</span>
+                        <div className="flex items-center justify-between space-x-2">
+                          <div className="flex items-center justify-center">
+                            <MapPin className="w-4 h-4" />
+                            <span>{`${city}, ${region}, ${country}`}</span>
+                          </div>
+                          <div className="flex items-center justify-center">
+                            <Globe className="w-4 h-4 ml-2" />
+                            <span>{`[${ll.join(", ")}]`}</span>
+                          </div>
                         </div>
                       </TableCell>
                     </TableRow>
