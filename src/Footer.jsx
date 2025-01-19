@@ -9,6 +9,7 @@ const Footer = () => {
             <a href='https://github.com/anishkharii/url_shortener_frontend' target='_blank'><Github className='cursor-pointer hover:text-blue-600'/></a>
             <a href='https://www.linkedin.com/in/anish-khari-992207247/' target='_blank'><Linkedin className='cursor-pointer hover:text-blue-600'/></a>
         </div>
+        <a href='https://a-5kjn.onrender.com/' target='_blank' className='underline text-xs hover:text-blue-500'>View All URLs</a>
     </div>
   )
 }
