@@ -13,7 +13,9 @@ import {
 import { ScrollArea } from "./components/ui/scroll-area"
 import HistoryCard from "./HistoryCard";
 import { useNavigate } from "react-router-dom";
-const Header = ({urlList}) => {
+
+
+const Header = ({urlList, setUrlList}) => {
     const navigate = useNavigate();
   return (
     <header className="flex items-center justify-center gap-8 p-4">
@@ -38,7 +40,7 @@ const Header = ({urlList}) => {
             <ScrollArea className="h-[350px] w-full px-0 md:px-3">
 
             {urlList.length>0 ?urlList.map((item) => (
-              <HistoryCard item={item} key={item.id}/>
+              <HistoryCard item={item} key={item.id} setUrlList={setUrlList}/>
             )) : <p>No history</p>}
             </ScrollArea>
           </DialogDescription>

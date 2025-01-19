@@ -6,6 +6,7 @@ import Header from "./Header";
 import { Loader2 } from "lucide-react";
 import ShortenDialog from "./ShortenDialog";
 import { useState } from "react";
+import Footer from "./Footer";
 
 const MainPage = () => {
   const [url, setUrl] = useState("");
@@ -70,7 +71,7 @@ const MainPage = () => {
   return (
     <div className=" flex items-center justify-center h-screen bg-gradient-to-r from-[rgb(250,241,254)] via-white to-[rgb(245,248,255)]">
       <Card className="flex flex-col items-center justify-center gap-5 m-2 px-3 py-1 md:px-10 md:py-5 rounded-lg shadow-md shadow-black/10">
-        <Header urlList={urlList} />
+        <Header urlList={urlList} setUrlList={setUrlList}/>
         <form className="flex flex-col items-center justify-center w-full max-w-80 gap-4">
           <Input
             type="url"
@@ -95,7 +96,8 @@ const MainPage = () => {
         </form>
         <p className="text-destructive text-sm font-bold">{error}</p>
       </Card>
-
+        
+      <Footer/>
       <ShortenDialog
         openMenu={openMenu}
         handleMenuChange={handleMenuChange}

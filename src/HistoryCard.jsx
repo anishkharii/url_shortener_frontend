@@ -8,10 +8,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./components/ui/tooltip";
-import { BarChart, Copy, CopyCheck } from "lucide-react";
+import { BarChart, Copy, CopyCheck, Trash2 } from "lucide-react";
 import { useState } from "react";
 
-const HistoryCard = ({ item }) => {
+const HistoryCard = ({ item, setUrlList }) => {
     const navigate = useNavigate();
   const [copy, setCopy] = useState(false);
   const handleCopy = ()=>{
@@ -21,8 +21,16 @@ const HistoryCard = ({ item }) => {
       setCopy(false);
     }, 5000);
   }
+  const handleDelete = ()=>{
+    setUrlList((prevList) => {
+      const updatedList = prevList.filter((url) => url.id !== item.id);
+      localStorage.setItem("urlList", JSON.stringify(updatedList));
+      return updatedList;
+    })
+  }
   return (
     <Card key={item.id} className="rounded-md my-4 px-2 md:px-5 py-2 grid grid-cols-10">
+      <Trash2 className="absolute text-red-500 right-5 cursor-pointer" size={15} onClick={handleDelete}/>
       <div className="flex flex-col items-start justify-center col-span-8 gap-1 overflow-clip">
         <a
           href={item.original_url}
