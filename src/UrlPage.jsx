@@ -23,6 +23,7 @@ import {
   AlertDescription,
   AlertTitle,
 } from "./components/ui/alert"
+import { ScrollArea } from "./components/ui/scroll-area";
 
 
 const URLPage = () => {
@@ -127,7 +128,7 @@ const URLPage = () => {
   } = data;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto ">
+    <div className=" h-auto flex flex-col items-center justify-center " style={{"backgroundImage": "linear-gradient(137deg, rgba(231,223,245,1) 0%, rgba(255,251,251,1) 50%, rgba(255,222,255,1) 100%)"}}>
     {
       error.code===403 &&
       <Alert className='absolute bg-white max-w-96 left-1/2 top-10 -translate-x-1/2 -translate-y-1/2' variant="destructive">
@@ -139,7 +140,9 @@ const URLPage = () => {
     </Alert>
     }
     
-      <Header urlList={urlList} />
+      <Header urlList={urlList} setUrlList={setUrlList}/>
+      <div className="max-w-4xl w-screen p-4 mx-auto">
+
       <Card className="mb-6">
         <CardHeader>
           <div className="flex items-center justify-between">
@@ -213,7 +216,7 @@ const URLPage = () => {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card >
         <CardHeader>
           <h2 className="text-xl font-semibold">Clicks History</h2>
         </CardHeader>
@@ -231,10 +234,26 @@ const URLPage = () => {
               </TableHeader>
               <TableBody>
                 {clicksHistory.map((click, index) => {
-                  const { timestamp, userAgent, ip, location } = click;
-                  const { browser, browserVersion, os, osVersion } =
-                    userAgent[0];
-                  const { city, country, region, ll } = location[0];
+                  const {
+                    timestamp = null,
+                    userAgent = null,
+                    ip = "N/A",
+                    location = null,
+                  } = click || {};
+
+                  const {
+                    browser = "Unknown",
+                    browserVersion = "",
+                    os = "Unknown",
+                    osVersion = "",
+                  } = (Array.isArray(userAgent) && userAgent[0]) || {};
+
+                  const {
+                    city = "",
+                    country = "Unknown",
+                    region = "",
+                    ll = [0,0],
+                  } = (Array.isArray(location) && location[0]) || {};
 
                   return (
                     <TableRow key={index}>
@@ -266,6 +285,7 @@ const URLPage = () => {
           )}
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 };

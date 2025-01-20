@@ -29,8 +29,8 @@ const HistoryCard = ({ item, setUrlList }) => {
     })
   }
   return (
-    <Card key={item.id} className="rounded-md my-4 px-2 md:px-5 py-2 grid grid-cols-10">
-      <Trash2 className="absolute text-red-500 right-5 cursor-pointer" size={15} onClick={handleDelete}/>
+    <Card key={item.id} className=" relative rounded-md my-4 px-2 md:px-5 py-2 grid grid-cols-10">
+      <Trash2 className="absolute text-red-500 right-2 top-2 cursor-pointer" size={15} onClick={handleDelete}/>
       <div className="flex flex-col items-start justify-center col-span-8 gap-1 overflow-clip">
         <a
           href={item.original_url}
@@ -59,13 +59,13 @@ const HistoryCard = ({ item, setUrlList }) => {
             </Tooltip>
           </TooltipProvider>
         </div>
-        <p className="text-sm text-muted-foreground">{item.createdAt}</p>
+        <p className="text-sm text-muted-foreground">{new Date(item.createdAt).toLocaleString()}</p>
       </div>
       <div className=" col-span-2 flex items-center justify-center">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <BarChart className="cursor-pointer" onClick={()=>navigate(`/url/${item.id}`)}/>
+              <BarChart className="cursor-pointer" onClick={()=>navigate(`/urls/${item.id}`)}/>
             </TooltipTrigger>
             <TooltipContent>
               <p className="">View Stats</p>

@@ -69,9 +69,9 @@ const MainPage = () => {
     }
   };
   return (
-    <div className=" flex items-center justify-center h-screen bg-gradient-to-r from-[rgb(250,241,254)] via-white to-[rgb(245,248,255)]">
-      <Card className="flex flex-col items-center justify-center gap-5 m-2 px-3 py-1 md:px-10 md:py-5 rounded-lg shadow-md shadow-black/10">
-        <Header urlList={urlList} setUrlList={setUrlList}/>
+    <div className=" flex items-center justify-center h-screen " style={{"backgroundImage": "linear-gradient(137deg, rgba(231,223,245,1) 0%, rgba(255,251,251,1) 50%, rgba(255,222,255,1) 100%)"}}>
+      <Card className="flex flex-col items-center justify-center gap-5 m-2 px-3 py-1 md:px-10 md:py-5 rounded-lg shadow-md shadow-black/10 bg-[#fbfbfb]">
+        <Header urlList={urlList} setUrlList={setUrlList} />
         <form className="flex flex-col items-center justify-center w-full max-w-80 gap-4">
           <Input
             type="url"
@@ -84,6 +84,7 @@ const MainPage = () => {
             }}
             autoFocus
             autoComplete="off"
+            className='bg-white'
           />
           <Button
             className="bg-blue-600 hover:bg-blue-500"

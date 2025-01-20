@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 
 const Header = ({urlList, setUrlList}) => {
     const navigate = useNavigate();
+
   return (
     <header className="flex items-center justify-center gap-8 p-4">
       <div className="flex items-start justify-center flex-col cursor-pointer" onClick={()=>navigate('/')}>
@@ -28,7 +29,7 @@ const Header = ({urlList, setUrlList}) => {
         </p>
       </div>
       <Dialog>
-        <DialogTrigger className="flex flex-col items-center justify-center">
+        <DialogTrigger className="flex flex-col items-center justify-center transition-all hover:underline">
           <History />
           <p className="text-sm text-gray-500">History</p>
         </DialogTrigger>
