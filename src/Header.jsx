@@ -22,7 +22,7 @@ const Header = ({urlList, setUrlList}) => {
     <header className="flex items-center justify-center gap-8 p-4">
       <div className="flex items-start justify-center flex-col cursor-pointer" onClick={()=>navigate('/')}>
         <h1 className="scroll-m-20 text-2xl text-blue-600 font-extrabold tracking-tight md:text-3xl lg:text-4xl">
-          URL Shortener
+          URL Slice
         </h1>
         <p className="text-gray-600 text-sm">
           A small microservice to shorten URLs

@@ -43,6 +43,13 @@ const URLPage = () => {
     const items = JSON.parse(localStorage.getItem("urlList"));
     return items || [];
   });
+
+
+  useEffect(()=>{
+    document.title = `${id}- URL Slice`;
+
+    return ()=>document.title = "Home - URL Slice";
+  },[id])
   useEffect(() => {
     async function fetchData() {
       try {
@@ -128,7 +135,7 @@ const URLPage = () => {
   } = data;
 
   return (
-    <div className=" h-auto flex flex-col items-center justify-center " style={{"backgroundImage": "linear-gradient(137deg, rgba(231,223,245,1) 0%, rgba(255,251,251,1) 50%, rgba(255,222,255,1) 100%)"}}>
+    <div className=" min-h-screen h-auto flex flex-col items-center justify-start " style={{"backgroundImage": "linear-gradient(137deg, rgba(231,223,245,1) 0%, rgba(255,251,251,1) 50%, rgba(255,222,255,1) 100%)"}}>
     {
       error.code===403 &&
       <Alert className='absolute bg-white max-w-96 left-1/2 top-10 -translate-x-1/2 -translate-y-1/2' variant="destructive">

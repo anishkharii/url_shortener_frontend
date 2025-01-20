@@ -13,6 +13,14 @@ const UrlList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
+
+  useEffect(()=>{
+    document.title = "URL List - URL Slice";
+
+    return () => {
+      document.title = "Home - URL Slice";
+    }
+  },[])
   useEffect(() => {
     async function fetchData() {
       try {
